@@ -1,0 +1,53 @@
+.cards {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 350px;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+mat-card-content {
+    padding-top: 20px;
+    text-align: left;
+}
+
+i {
+    color: white;
+    padding: 10px 0;
+    font-size: 150px;
+    background: crimson;
+}
+
+h1 {
+    padding-top: 20px;
+    font-size: 100px;
+}
+
+.c1 {
+    text-align: center;
+    height: 120px;
+    padding: 10px 20px;
+}
+
+.my-table {
+    margin: 50px auto;
+    width: 80%;
+
+}
+
+mat-card-header {
+    padding: 15px 100px 0 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-card-title {
+    cursor: pointer;
+}

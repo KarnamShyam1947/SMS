@@ -1,0 +1,63 @@
+<mat-card>
+    <form [formGroup]="addCourseForm" (ngSubmit)="addCourse()">
+        <h1>Add Course</h1>
+        <mat-card-content>
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Course Code</mat-label>
+                    <input type="text" matInput formControlName="code">
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>Course Name</mat-label>
+                    <input type="text" matInput formControlName="name">
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>Course Type</mat-label>
+                    <input type="text" matInput formControlName="type">
+                </mat-form-field>
+            </div>
+
+            <div formArrayName="slots">
+                <button type="button" id="btn" mat-raised-button color="primary" (click)="addSlot()">Add Slot</button>
+                
+                <div *ngFor="let s of addCourseForm.controls['slots'].controls; let i = index;" formGroupName="{{ i }}">
+                    <mat-form-field class="f1" appearance="outline">
+                        <mat-label>Select Slot</mat-label>
+                        <mat-select formControlName="slot">
+                            <mat-option value="A1+TA1">A1+TA1</mat-option>
+                            <mat-option value="B1+TB1">B1+TB1</mat-option>
+                            <mat-option value="C1+TC1">C1+TC1</mat-option>
+                            <mat-option value="D1+TD1">D1+TD1</mat-option>
+                            <mat-option value="E1+TE1">E1+TE1</mat-option>
+                            <mat-option value="F1+TF1">F1+TF1</mat-option>
+                            <mat-option value="G1+TG1">G1+TG1</mat-option>
+                            <mat-option value="A2+TA2">A2+TA2</mat-option>
+                            <mat-option value="B2+TB2">B2+TB2</mat-option>
+                            <mat-option value="C2+TC2">C2+TC2</mat-option>
+                            <mat-option value="D2+TD2">D2+TD2</mat-option>
+                            <mat-option value="E2+TE2">E2+TE2</mat-option>
+                            <mat-option value="F2+TF2">F2+TF2</mat-option>
+                            <mat-option value="G2+TG2">G2+TG2</mat-option>
+                            <mat-option value="L1+L2">L1+L2</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                    <mat-form-field class="f1" appearance="outline">
+                        <mat-label>Faculty Name</mat-label>
+                        <input matInput type="text" formControlName="faculty">
+                    </mat-form-field>
+                    
+                    <button type="button" mat-raised-button color="warn" (click)="removeSlot(i)">Remove Slot</button>
+                </div>
+            </div>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary">Add Course</button>
+        </mat-card-actions>
+    </form>
+</mat-card>

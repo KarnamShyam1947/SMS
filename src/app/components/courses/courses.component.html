@@ -1,0 +1,76 @@
+<div class="cards">
+    <mat-card class="card">
+        <i class="fa-solid fa-user"></i>
+        <mat-card-content>
+            <mat-card-title routerLink="../admin">
+              Manage Students
+            </mat-card-title>
+            <mat-card-subtitle>You manage student details by adding, deleting and updating records</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="card">
+        <i class="fa-solid fa-table-columns"></i>
+        <mat-card-content>
+            <mat-card-title routerLink="../department">
+              Manage Departments
+            </mat-card-title>
+            <mat-card-subtitle>You manage department details by adding, deleting and updating records</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="card">
+        <i class="fa-solid fa-book"></i>
+        <mat-card-content>
+            <mat-card-title routerLink="../course">
+              Manage Courses
+            </mat-card-title>
+            <mat-card-subtitle>You manage course details by adding, deleting and updating records</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<mat-card class="my-table">
+    <mat-card-header>
+        <mat-card-title>Courses</mat-card-title>
+        <button
+            color="primary"
+            routerLink="../add-course"
+            mat-raised-button>
+            Add Course
+        </button>
+    </mat-card-header>
+    <mat-card-content>
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                    <th>Course Type</th>
+                    <th>Course Slot</th>
+                    <th>Course Faculty</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let course of courses;">
+                    <tr *ngFor="let s of course.slots; let i = index; ">
+                        <td>{{ course.code }}</td>
+                        <td>{{ course.name }}</td>
+                        <td>{{ course.type }}</td>
+                        <td>{{ s.slot }}</td>
+                        <td>{{ s.faculty }}</td>
+                        <td>
+                            <button
+                                color="warn"
+                                (click)="deleteCourse(course.id, i)"
+                                mat-raised-button>
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>

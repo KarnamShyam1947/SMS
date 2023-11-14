@@ -1,0 +1,50 @@
+<form [formGroup]="registerCourseForm" (ngSubmit)="registerCourse()">
+    <mat-form-field appearance="outline">
+        <mat-label>Student Name</mat-label>
+        <input type="text" formControlName="name" matInput>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Student Registration Number</mat-label>
+        <input type="text" formControlName="reg" matInput>
+    </mat-form-field>
+
+    <button type="button" mat-raised-button color="primary" (click)="addCourse()">Add Course</button>
+    <div formArrayName="courses">
+        <div *ngFor="let c of registerCourseForm.controls['courses'].controls; let i = index" formGroupName="{{ i }}">
+            <mat-form-field appearance="outline">
+                <mat-label>Select Course</mat-label>
+                <mat-select 
+                    (selectionChange)="getSlots($event)"
+                    formControlName="course">
+                    <mat-option 
+                        *ngFor="let cs of courses" 
+                        [value]="cs.name">
+                        {{ cs.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Select Slot</mat-label>
+                <mat-select formControlName="slot">
+                    <mat-option 
+                        *ngFor="let ss of slots" 
+                        [value]="ss.slot">
+                        {{ ss.slot }}({{ ss.faculty }})
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        
+
+            <button type="button" mat-raised-button color="warn" (click)="removeCourse(i)">Remove course</button>
+        </div>
+    </div>
+    <button mat-raised-button color="accent">Register</button>
+    <button 
+        mat-raised-button 
+        color="warn"
+        routerLink="../student">
+        cancel
+    </button>
+</form>

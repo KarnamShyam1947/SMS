@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Registered course</mat-card-title>
+    
+        <div class="btns">
+            <button
+                type="button"
+                color="primary"
+                routerLink="../register-course"
+                mat-raised-button>
+                Register
+            </button>
+            
+            <button
+                type="button"
+                color="accent"
+                routerLink="../view-marks"
+                mat-raised-button>
+                View Marks
+            </button>
+        </div>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="Course Name">
+              <th mat-header-cell *matHeaderCellDef> Course Name</th>
+              <td mat-cell *matCellDef="let element"> {{element.course}} </td>
+            </ng-container>
+    
+            <!-- Name Column -->
+            <ng-container matColumnDef="Slot">
+              <th mat-header-cell *matHeaderCellDef> Slot </th>
+              <td mat-cell *matCellDef="let element"> {{element.slot}} </td>
+            </ng-container>
+    
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>
+  
+  

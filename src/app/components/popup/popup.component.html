@@ -1,0 +1,177 @@
+<div mat-dialog-title>
+    <h1>{{ inputData['title'] }}</h1>
+</div>
+
+<div mat-dialog-content>
+    <!-- add student form -->
+    <form *ngIf="inputData['type'] == 'student'" [formGroup]="addStudentForm" (ngSubmit)="addStudent()">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" type="text" matInput>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Registration Number</mat-label>
+            <input formControlName="reg" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input formControlName="phone" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+                <mat-option value="male">male</mat-option>
+                <mat-option value="female">female</mat-option>
+                <mat-option value="others">others</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Department</mat-label>
+            <mat-select formControlName="dept">
+                <mat-option
+                    *ngFor="let dept of deptDetails"
+                    [value]="dept.name">
+                    {{ dept.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Sem</mat-label>
+            <mat-select formControlName="sem">
+                <mat-option value="FALL-SEM">FALL-SEM</mat-option>
+                <mat-option value="WIN-SEM">WIN-SEM</mat-option>
+                <mat-option value="INTRA-SEM">INTRA-SEM</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Academic Year</mat-label>
+            <input formControlName="year" type="text" matInput>
+        </mat-form-field>
+
+        <div mat-dialog-actions align="end">
+            <button mat-raised-button color="primary">Add Student</button>
+            <button mat-raised-button mat-dialog-close color="warn">Close</button>
+        </div>
+    </form>
+    
+    <!-- add department form -->
+    <form *ngIf="inputData['type'] == 'dept'" [formGroup]="addDeptForm" (ngSubmit)="addDept()">
+        <mat-form-field class="form-field-full" appearance="outline">
+            <mat-label>Department id</mat-label>
+            <input formControlName="dept_id" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-full" appearance="outline">
+            <mat-label>Department Name</mat-label>
+            <input formControlName="name" type="text" matInput>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field-full" appearance="outline">
+            <mat-label>Dean of Department</mat-label>
+            <input formControlName="dean" type="text" matInput>
+        </mat-form-field>
+
+
+        <div mat-dialog-actions align="end">
+            <button mat-raised-button color="primary">Add Department</button>
+            <button mat-raised-button mat-dialog-close color="warn">Close</button>
+        </div>
+    </form>
+
+    <!-- edit student form -->
+    <form *ngIf="inputData['type'] == 'edit-student'" [formGroup]="editStudentForm" (ngSubmit)="editStudent()">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" type="text" matInput>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Registration Number</mat-label>
+            <input formControlName="reg" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input formControlName="phone" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+                <mat-option value="male">male</mat-option>
+                <mat-option value="female">female</mat-option>
+                <mat-option value="others">others</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Department</mat-label>
+            <mat-select formControlName="dept">
+                <mat-option
+                    *ngFor="let dept of deptDetails"
+                    [value]="dept.name">
+                    {{ dept.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Sem</mat-label>
+            <mat-select formControlName="sem">
+                <mat-option value="FALL-SEM">FALL-SEM</mat-option>
+                <mat-option value="WIN-SEM">WIN-SEM</mat-option>
+                <mat-option value="INTRA-SEM">INTRA-SEM</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Year</mat-label>
+            <input formControlName="year" type="text" matInput>
+        </mat-form-field>
+
+        <div mat-dialog-actions align="end">
+            <button mat-raised-button color="primary">Edit Student</button>
+            <button mat-raised-button mat-dialog-close color="warn">Close</button>
+        </div>
+    </form>
+
+    <form *ngIf="inputData['type'] == 'edit-dept'" [formGroup]="editDeptForm" (ngSubmit)="editDept()">
+        <mat-form-field class="form-field-full" appearance="outline">
+            <mat-label>Department id</mat-label>
+            <input formControlName="dept_id" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-full" appearance="outline">
+            <mat-label>Department Name</mat-label>
+            <input formControlName="name" type="text" matInput>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field-full" appearance="outline">
+            <mat-label>Dean of Department</mat-label>
+            <input formControlName="dean" type="text" matInput>
+        </mat-form-field>
+
+
+        <div mat-dialog-actions align="end">
+            <button mat-raised-button color="primary">Edit Department</button>
+            <button mat-raised-button mat-dialog-close color="warn">Close</button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,14 @@
+.form-field {
+    width: 48%;
+    margin: 1%;
+}
+
+.form-field-full {
+    width: 98%;
+    margin: 1%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+}

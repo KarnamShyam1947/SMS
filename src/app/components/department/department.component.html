@@ -1,0 +1,122 @@
+<div class="cards">
+    <mat-card class="card">
+        <i class="fa-solid fa-user"></i>
+        <mat-card-content>
+            <mat-card-title routerLink="../admin">
+                Manage Students
+            </mat-card-title>
+            <mat-card-subtitle>You manage student details by adding, deleting and updating records</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="card">
+        <i class="fa-solid fa-table-columns"></i>
+        <mat-card-content>
+            <mat-card-title routerLink="../department">
+                Manage Departments
+            </mat-card-title>
+            <mat-card-subtitle>You manage department details by adding, deleting and updating records</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card">
+        <i class="fa-solid fa-book"></i>
+        <mat-card-content>
+            <mat-card-title routerLink="../course">
+              Manage Courses
+            </mat-card-title>
+            <mat-card-subtitle>You manage course details by adding, deleting and updating records</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<!-- <div class="cards">
+    <mat-card class="c1">
+        <h1>100</h1>
+        <h2>Admin</h2>
+    </mat-card>
+
+    <mat-card class="c1">
+        <h1>100</h1>
+        <h2>Users</h2>
+    </mat-card>
+    
+    <mat-card class="c1">
+        <h1>100</h1>
+        <h2>Departments</h2>
+    </mat-card>
+    
+</div> -->
+
+<mat-card class="my-table">
+    <mat-card-header>
+        <mat-card-title>Departments</mat-card-title>
+        <div>
+            <input type="text" (keyup)="filter($event)">
+            <button mat-raised-button color="primary" (click)="addDepartment()">
+                Add Department
+            </button>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+        
+            <!-- Position Column -->
+            <ng-container matColumnDef="Id">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="Department Id">
+              <th mat-header-cell *matHeaderCellDef> Department Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.dept_id}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="Department Name">
+              <th mat-header-cell *matHeaderCellDef> Department Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Head of Department">
+              <th mat-header-cell *matHeaderCellDef> Head of Department </th>
+              <td mat-cell *matCellDef="let element"> {{element.dean}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="Action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element">
+                <button 
+                    mat-raised-button 
+                    color="primary"
+                    (click)="editDepartment(element.id)">
+                    Edit
+                </button>
+                <button 
+                    mat-raised-button 
+                    color="warn"
+                    (click)="deleteDepartment(element.id)">
+                    Delete
+                </button>
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-paginator [length]="100"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]">
+        </mat-paginator>
+
+    </mat-card-footer>
+</mat-card>
+  
+  

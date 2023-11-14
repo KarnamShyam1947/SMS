@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="head">
+        <h1>View Marks</h1>
+        <button
+        mat-raised-button
+        color="primary"
+        routerLink="../student"
+        >Home</button>
+    </div>
+    <mat-form-field appearance="outline">
+        <mat-label>Select exam type</mat-label>
+        <mat-select (selectionChange)="getMarks($event)">
+            <mat-option value="cat1">cat1</mat-option>
+            <mat-option value="cat2">cat2</mat-option>
+            <mat-option value="fat">fat</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <table *ngIf="result" class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Course name</th>
+                <th>Course marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let m of marks">
+                <td>{{ m.course }}</td>
+                <td>{{ m.marks }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div *ngIf="error" >
+        <h1>marks not allocated</h1>
+    </div>
+</div>

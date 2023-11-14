@@ -1,0 +1,145 @@
+<div class="cards">
+    <mat-card class="card">
+        <i class="fa-solid fa-user"></i>
+        <mat-card-content>
+            <mat-card-title routerLink="../admin">
+              Manage Students
+            </mat-card-title>
+            <mat-card-subtitle>You manage student details by adding, deleting and updating records</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="card">
+        <i class="fa-solid fa-table-columns"></i>
+        <mat-card-content>
+            <mat-card-title routerLink="../department">
+              Manage Departments
+            </mat-card-title>
+            <mat-card-subtitle>You manage department details by adding, deleting and updating records</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="card">
+        <i class="fa-solid fa-book"></i>
+        <mat-card-content>
+            <mat-card-title routerLink="../course">
+              Manage Courses
+            </mat-card-title>
+            <mat-card-subtitle>You manage course details by adding, deleting and updating records</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<!-- <div class="cards">
+    <mat-card class="c1">
+        <h1>100</h1>
+        <h2>Admin</h2>
+    </mat-card>
+
+    <mat-card class="c1">
+        <h1>100</h1>
+        <h2>Users</h2>
+    </mat-card>
+    
+    <mat-card class="c1">
+        <h1>100</h1>
+        <h2>Departments</h2>
+    </mat-card>
+    
+</div> -->
+
+<mat-card class="my-table">
+
+    <mat-card-header>
+        <mat-card-title>Students</mat-card-title>
+        <div>
+            <input type="text" (keyup)="filter($event)">
+            <button mat-raised-button color="primary" (click)="openAddStudent()">
+                Add Student
+            </button>
+        </div>
+    </mat-card-header>
+
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        
+            <ng-container matColumnDef="No.">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="Registration Number">
+              <th mat-header-cell *matHeaderCellDef> Registration Number </th>
+              <td mat-cell *matCellDef="let element"> {{element.reg}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Phone">
+              <th mat-header-cell *matHeaderCellDef> Phone </th>
+              <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="Department">
+              <th mat-header-cell *matHeaderCellDef> Department </th>
+              <td mat-cell *matCellDef="let element"> {{element.dept}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="Gender">
+              <th mat-header-cell *matHeaderCellDef> Gender </th>
+              <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="Sem">
+              <th mat-header-cell *matHeaderCellDef> Semester </th>
+              <td mat-cell *matCellDef="let element"> {{element.sem}}-{{ element.year }} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="Action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element">
+                <button 
+                    mat-raised-button 
+                    color="primary"
+                    (click)="editStudent(element.id)">
+                    Edit
+                </button>
+                
+                <button 
+                    (click)="deleteStudent(element.id)"
+                    mat-raised-button 
+                    color="warn">
+                    Delete
+                </button>
+                
+                <button 
+                    routerLink="../add-marks/{{element.id}}"
+                    mat-raised-button 
+                    color="accent">
+                    Add Marks
+                </button>
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+
+    <mat-card-footer>
+        <mat-paginator
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]">
+        </mat-paginator>
+    </mat-card-footer>
+</mat-card>
+  
+  

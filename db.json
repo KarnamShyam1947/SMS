@@ -1,0 +1,274 @@
+{
+  "student": [
+    {
+      "gender": "male",
+      "phone": "9346872174",
+      "email": "karnamshyam9009@gmail.com",
+      "name": "shyam",
+      "dept": "SCOPE",
+      "year": "2023-24",
+      "reg": "21MIC7182",
+      "sem": "FALL-SEM",
+      "password": "shyam",
+      "courses": [
+        {
+          "course": "AI",
+          "slot": "A2+TA2"
+        },
+        {
+          "course": "UI/UX",
+          "slot": "A1+TA1"
+        },
+        {
+          "course": "CA",
+          "slot": "B1+TB1"
+        },
+        {
+          "course": "FDAT",
+          "slot": "B2+TB2"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "gender": "male",
+      "phone": "9381199575",
+      "email": "pawan@gmail.com",
+      "name": "Pawantej",
+      "dept": "SCOPE",
+      "year": "2023-24",
+      "reg": "21MIC7198",
+      "sem": "FALL-SEM",
+      "password": "pawan",
+      "courses": [
+        {
+          "course": "FDAT",
+          "slot": "B1+TB1"
+        },
+        {
+          "course": "UI/UX",
+          "slot": "B2+TB2"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "gender": "male",
+      "phone": "9121318625",
+      "email": "chandra@gmail.com",
+      "name": "Chandra",
+      "dept": "SENSE",
+      "year": "2023-24",
+      "sem": "FALL-SEM",
+      "reg": "21MIC7143",
+      "id": 3
+    },
+    {
+      "gender": "male",
+      "phone": "9978855241",
+      "email": "shekhar@gmail.com",
+      "name": "Shekhar",
+      "dept": "SAS",
+      "year": "2025-26",
+      "sem": "FALL-SEM",
+      "reg": "21MIS7143",
+      "id": 4
+    },
+    {
+      "gender": "male",
+      "phone": "9121318625",
+      "email": "sekhararipaka456@gmail.com",
+      "name": "Chandra Sekhar",
+      "dept": "SCOPE",
+      "year": "23",
+      "reg": "21MIS7145",
+      "sem": "FALL-SEM",
+      "password": "chandra45",
+      "courses": [
+        {
+          "course": "AI",
+          "slot": "A2+TA2"
+        },
+        {
+          "course": "UI/UX",
+          "slot": "B1+TB1"
+        },
+        {
+          "course": "FDAT",
+          "slot": "B2+TB2"
+        }
+      ],
+      "id": 5
+    }
+  ],
+  "department": [
+    {
+      "dept_id": "D001",
+      "name": "SCOPE",
+      "dean": "Dean1",
+      "id": 1
+    },
+    {
+      "dept_id": "D002",
+      "name": "SENSE",
+      "dean": "Dean2",
+      "id": 2
+    },
+    {
+      "dept_id": "D003",
+      "name": "SAS",
+      "dean": "dean3",
+      "id": 3
+    }
+  ],
+  "courses": [
+    {
+      "code": "CSE3002",
+      "name": "AI",
+      "type": "TAL",
+      "slots": [
+        {
+          "slot": "A1+TA1",
+          "faculty": "faculty1"
+        },
+        {
+          "slot": "A2+TA2",
+          "faculty": "faculty2"
+        },
+        {
+          "slot": "B1+TB1",
+          "faculty": "faculty80"
+        },
+        {
+          "slot": "B2+TB2",
+          "faculty": "faculty100"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "code": "SWE3004",
+      "name": "FDAT",
+      "type": "TAL",
+      "slots": [
+        {
+          "slot": "A1+TA1",
+          "faculty": "faculty1"
+        },
+        {
+          "slot": "A2+TA2",
+          "faculty": "faculty2"
+        },
+        {
+          "slot": "B1+TB1",
+          "faculty": "faculty3"
+        },
+        {
+          "slot": "B2+TB2",
+          "faculty": "faculty100"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "code": "CSE4012",
+      "name": "UI/UX",
+      "type": "TAL",
+      "slots": [
+        {
+          "slot": "A1+TA1",
+          "faculty": "faculty7"
+        },
+        {
+          "slot": "A2+TA2",
+          "faculty": "faculty10"
+        },
+        {
+          "slot": "B1+TB1",
+          "faculty": "faculty3"
+        },
+        {
+          "slot": "B2+TB2",
+          "faculty": "faculty4"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "code": "ECE2015",
+      "name": "CA",
+      "type": "OT",
+      "slots": [
+        {
+          "slot": "A1+TA1",
+          "faculty": "faculty7"
+        },
+        {
+          "slot": "A2+TA2",
+          "faculty": "faculty10"
+        },
+        {
+          "slot": "B1+TB1",
+          "faculty": "faculty80"
+        },
+        {
+          "slot": "B2+TB2",
+          "faculty": "faculty4"
+        }
+      ],
+      "id": 4
+    }
+  ],
+  "marks": [
+    {
+      "student_id": "1",
+      "student_reg": "21MIC7182",
+      "student_name": "shyam",
+      "exam_type": "cat1",
+      "marks": [
+        {
+          "course": "AI",
+          "marks": "40"
+        },
+        {
+          "course": "UI/UX",
+          "marks": "35"
+        },
+        {
+          "course": "CA",
+          "marks": "47"
+        },
+        {
+          "course": "FDAT",
+          "marks": "36"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "student_id": "1",
+      "student_reg": "21MIC7182",
+      "student_name": "shyam",
+      "exam_type": "cat2",
+      "marks": [
+        {
+          "course": "AI",
+          "marks": "38"
+        },
+        {
+          "course": "UI/UX",
+          "marks": "40"
+        },
+        {
+          "course": "CA",
+          "marks": "47"
+        },
+        {
+          "course": "FDAT",
+          "marks": "33"
+        }
+      ],
+      "id": 2
+    }
+  ]
+}

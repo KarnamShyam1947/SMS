@@ -1,0 +1,47 @@
+<h1>Add Marks</h1>
+
+<form [formGroup]="addMarksForm" (ngSubmit)="addMarks()">
+    <mat-form-field appearance="outline">
+        <input type="text" matInput formControlName="student_reg">
+        <mat-label>Student Registration number</mat-label>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <input type="text" matInput formControlName="student_name">
+        <mat-label>Student name</mat-label>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Select Exam</mat-label>
+        <mat-select formControlName="exam_type">
+            <mat-option value="cat1">cat1</mat-option>
+            <mat-option value="cat2">cat2</mat-option>
+            <mat-option value="fat">fat</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div formArrayName="marks">
+        <div *ngFor="let mark of addMarksForm.controls['marks'].controls; let i = index; " formGroupName="{{ i }}">
+            <mat-form-field appearance="outline">
+                <input type="text" matInput formControlName="course">
+                <mat-label>Course name</mat-label>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <input type="text" matInput formControlName="marks">
+                <mat-label>Marks scoured</mat-label>
+            </mat-form-field>
+        </div>
+    </div>
+    <button
+        color="primary"
+        mat-raised-button>
+        Submit
+    </button>
+    <button
+        routerLink="../../admin"
+        color="warn"
+        mat-raised-button>
+        Cancel
+    </button>
+</form>
